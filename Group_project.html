@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Group Project - Fixed-Length File Management System</title>
+    <style>
+        body {
+            font-family: Segoe UI, Tahoma, Arial, sans-serif;
+            max-width: 1100px;
+            margin: auto;
+            padding: 30px;
+            line-height: 1.6;
+            color: #333
+        }
+
+        header {
+            background: #1f4e79;
+            color: white;
+            padding: 30px;
+            border-radius: 10px
+        }
+
+        h1 {
+            margin: 0
+        }
+
+        h2 {
+            color: #1f4e79;
+            border-bottom: 2px solid #d9e2f3;
+            padding-bottom: 6px;
+            margin-top: 35px
+        }
+
+        h3 {
+            color: #2f5597
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0
+        }
+
+        th,
+        td {
+            border: 1px solid #cfcfcf;
+            padding: 10px
+        }
+
+        th {
+            background: #d9e2f3
+        }
+
+        code,
+        pre {
+            background: #f5f5f5
+        }
+
+        pre {
+            padding: 12px;
+            border-radius: 6px;
+            overflow: auto
+        }
+
+        .section {
+            background: #fafafa;
+            border-left: 5px solid #1f4e79;
+            padding: 12px 18px;
+            margin: 15px 0
+        }
+
+        ul li,
+        ol li {
+            margin: 6px 0
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding: 15px;
+            background: #eef4fb;
+            border-radius: 8px
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Python Group Project</h1>
+        <p><strong>Fixed-Length File Management System</strong><br>Group Project (2-3 Students)</p>
+    </header>
+
+    <h2>Project Overview</h2>
+    <p>For this group project, your team will design and develop a complete Python application that manages data using
+        fixed-length record files. The application must allow users to create, view, search, update, and delete records
+        through a menu-driven interface.</p>
+    <p>You may work in groups of <strong>2 or 3 students</strong> and select your own project topic.</p>
+
+    <h2>Important Note on AI Usage</h2>
+    <div class="section">
+        <p>The use of AI tools such as ChatGPT, Microsoft Copilot, Claude, Gemini, GitHub Copilot, and similar code
+            assistants is permitted for this project.</p>
+        <ul>
+            <li>Explain how the program works</li>
+            <li>Explain the purpose of major functions</li>
+            <li>Explain file handling logic</li>
+            <li>Explain CRUD operations</li>
+            <li>Explain validation and exception handling</li>
+            <li>Answer questions about submitted code</li>
+        </ul>
+        <p>All group members are responsible for understanding all submitted code, including AI-generated code.</p>
+    </div>
+
+    <h2>Project Requirements</h2>
+    <h3>1. Menu System</h3>
+    <pre>=== MENU ===
+1. Add Record
+2. View Records
+3. Search Record by ID
+4. Update Record
+5. Delete Record
+6. Exit</pre>
+
+    <h3>2. CRUD Operations</h3>
+    <table>
+        <tr>
+            <th>Operation</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Create</td>
+            <td>Add a new record</td>
+        </tr>
+        <tr>
+            <td>Read</td>
+            <td>Display all records</td>
+        </tr>
+        <tr>
+            <td>Update</td>
+            <td>Modify an existing record using its ID</td>
+        </tr>
+        <tr>
+            <td>Delete</td>
+            <td>Delete a record using its ID</td>
+        </tr>
+    </table>
+
+    <h3>3. Search by ID Only</h3>
+    <p>Users must search records using the unique ID field only.</p>
+    <pre>Enter Student ID: 100005</pre>
+
+    <h3>4. Fixed-Length Records</h3>
+    <pre>100001John Smith          john@test.com             CPA</pre>
+    <table>
+        <tr>
+            <th>Field</th>
+            <th>Length</th>
+        </tr>
+        <tr>
+            <td>ID</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>25</td>
+        </tr>
+        <tr>
+            <td>Program</td>
+            <td>10</td>
+        </tr>
+    </table>
+
+    <h3>5. File Storage</h3>
+    <ul>
+        <li>Read data from a file</li>
+        <li>Add records</li>
+        <li>Search records</li>
+        <li>Update records</li>
+        <li>Delete records</li>
+        <li>Preserve fixed-length formatting</li>
+    </ul>
+
+    <h3>6. Input Validation</h3>
+    <ul>
+        <li>Required fields cannot be blank</li>
+        <li>Numeric fields must contain valid numbers</li>
+        <li>Duplicate IDs are not allowed</li>
+        <li>Search, update, and delete IDs must exist</li>
+        <li>Display meaningful validation messages</li>
+    </ul>
+
+    <h3>7. Exception Handling</h3>
+    <pre>try:
+    choice = int(input("Enter menu option: "))
+except ValueError:
+    print("Invalid menu option.")</pre>
+    <p>Handle exceptions such as ValueError, FileNotFoundError, file access errors, and other runtime issues.</p>
+
+    <h3>8. Program Organization</h3>
+    <pre>show_menu()
+add_record()
+display_records()
+search_by_id()
+update_record()
+delete_record()</pre>
+
+    <h2>Suggested Project Ideas</h2>
+    <ul>
+        <li>Library Management System</li>
+        <li>Student Information System</li>
+        <li>Vehicle Inventory System</li>
+        <li>Pet Adoption System</li>
+        <li>Movie Collection Manager</li>
+        <li>Hotel Reservation System</li>
+        <li>Video Game Collection Manager</li>
+        <li>Employee Records System</li>
+        <li>Instructor-approved custom project</li>
+    </ul>
+
+    <h2>Presentation Requirements</h2>
+    <ol>
+        <li>Add a record</li>
+        <li>Display all records</li>
+        <li>Search by ID</li>
+        <li>Update by ID</li>
+        <li>Delete by ID</li>
+        <li>Explain fixed-length records</li>
+        <li>Explain file operations</li>
+        <li>Explain validation logic</li>
+        <li>Explain exception handling</li>
+        <li>Explain key sections of the code</li>
+    </ol>
+
+    <h2>Submission Requirements</h2>
+    <ul>
+        <li>Python source code (.py files)</li>
+        <li>Data file used by the application</li>
+        <li>Screenshots demonstrating CRUD functionality</li>
+        <li>Project summary document</li>
+        <li>Excel Test Plan (.xlsx)</li>
+    </ul>
+
+    <h2>Test Plan Requirements</h2>
+    <p>Create an Excel spreadsheet documenting testing performed on the application.</p>
+    <table>
+        <tr>
+            <th>Test Case #</th>
+            <th>Feature</th>
+            <th>Input</th>
+            <th>Expected Result</th>
+            <th>Actual Result</th>
+            <th>Pass/Fail</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Add Record</td>
+            <td>Valid Record</td>
+            <td>Record Added</td>
+            <td>Record Added</td>
+            <td>Pass</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Search by ID</td>
+            <td>Existing ID</td>
+            <td>Record Displayed</td>
+            <td>Record Displayed</td>
+            <td>Pass</td>
+        </tr>
+    </table>
+    <p>At minimum, test Add, Display, Search, Update, Delete, invalid searches, validation rules, and exception handling
+        scenarios.</p>
+
+    <h2>Evaluation (35 Marks)</h2>
+    <table>
+        <tr>
+            <th>Criteria</th>
+            <th>Marks</th>
+        </tr>
+        <tr>
+            <td>Menu system functions correctly</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>Create operation works correctly</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>Display all records works correctly</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>Search by ID works correctly</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>Update by ID works correctly</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>Delete by ID works correctly</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>Fixed-length file structure implemented correctly</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>Test Plan (Excel Spreadsheet)</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>Code organization and use of functions</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>Presentation and code understanding</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <th>Total</th>
+            <th>35</th>
+        </tr>
+    </table>
+
+    <div class="footer">
+        <h2>Goal</h2>
+        <p>Build a realistic file-based management system demonstrating Python functions, menu-driven programming, file
+            processing, fixed-length records, CRUD operations, input validation, exception handling, and software
+            testing.</p>
+    </div>
+</body>
+
+</html>
